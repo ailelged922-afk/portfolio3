@@ -416,91 +416,238 @@ section h2::before {
 
   line-height: 1.9;
 }
-
-
-/* ========================================
+/* =========================
    SKILLS
-======================================== */
+========================= */
 
 #skills {
-  max-width: 1250px;
-}
-
-#skills ul {
-  margin-top: 60px;
-
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 12px;
-}
-
-#skills li {
-  min-height: 130px;
-
-  padding: 25px;
-
-  display: flex;
-  align-items: flex-end;
-
-  position: relative;
-
-  background: var(--white);
-
-  border: 1px solid var(--border);
-
-  border-radius: 10px;
-
-  font-size: 18px;
-
-  font-weight: 800;
-
-  transition: all 0.3s ease;
+    width: 100%;
+    padding: 110px 0;
+    overflow: hidden;
+    background: #faf9f6;
 }
 
 
-/* Numbers */
+/* =========================
+   HEADING
+========================= */
+.skills-title span {
+    display: block;
+    margin-bottom: 14px;
 
-#skills li::before {
-  content: "01";
+    color: #e86a2a;
 
-  position: absolute;
-
-  top: 20px;
-  left: 20px;
-
-  color: var(--orange);
-
-  font-size: 10px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 3px;
 }
 
-#skills li:nth-child(2)::before {
-  content: "02";
+.skills-title h2 {
+    max-width: 650px;
+
+    margin: 0;
+
+    color: #171717;
+
+    line-height: 1;
+    font-weight: 700;
+
+    letter-spacing: -2px;
 }
 
-#skills li:nth-child(3)::before {
-  content: "03";
+.skills-title h2 em {
+    color: #e86a2a;
+    font-style: normal;
 }
 
-#skills li:nth-child(4)::before {
-  content: "04";
+
+/* =========================
+   SKILLS SLIDER
+========================= */
+
+.skills-slider {
+    width: 100%;
+    overflow: hidden;
+
+    padding: 10px 0 20px;
+
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 5%,
+        black 95%,
+        transparent
+    );
+
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 5%,
+        black 95%,
+        transparent
+    );
 }
 
-#skills li:nth-child(5)::before {
-  content: "05";
+
+.skills-track {
+    display: flex;
+    align-items: center;
+
+    width: max-content;
+
+    gap: 22px;
+
+    animation: skillsScroll 28s linear infinite;
 }
 
-#skills li:nth-child(6)::before {
-  content: "06";
+
+/* =========================
+   SKILL
+========================= */
+
+.skill {
+    width: 180px;
+    height: 150px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    background: #ffffff;
+
+    border: 1px solid #dedbd5;
+
+    border-radius: 24px;
+
+    transition: 0.3s ease;
 }
 
-#skills li:hover {
-  transform: translateY(-6px);
 
-  border-color: var(--orange);
+.skill:hover {
+    border-color: #e86a2a;
+
+    transform: translateY(-8px);
 }
 
+
+/* Skill image */
+
+.skill img {
+    width: 48px;
+    height: 48px;
+
+    object-fit: contain;
+}
+
+
+/* Icons */
+
+.skill-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #e86a2a;
+
+    font-size: 38px;
+}
+
+
+/* Skill name */
+
+.skill > span:last-child {
+    color: #171717;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes skillsScroll {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    #skills {
+        padding: 80px 0;
+    }
+
+    .skills-heading {
+        padding: 0 25px 40px;
+    }
+
+    .skills-title span {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .skills-title h2 {
+        font-size: 35px;
+        letter-spacing: -1px;
+    }
+
+    .skills-arrow {
+        font-size: 35px;
+    }
+
+    .skills-track {
+        gap: 15px;
+
+        animation-duration: 22s;
+    }
+
+    .skill {
+        width: 140px;
+        height: 120px;
+
+        border-radius: 18px;
+    }
+
+    .skill img {
+        width: 38px;
+        height: 38px;
+    }
+
+    .skill-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 30px;
+    }
+
+    .skill > span:last-child {
+        font-size: 12px;
+    }
+
+}
 
 /* ========================================
    SERVICES
